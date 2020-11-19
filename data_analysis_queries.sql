@@ -37,3 +37,14 @@ from employees
     INNER JOIN department on
     department.dept_no=dept_emp.dept_no
     where dept_name ='Sales';
+
+--7.) List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+select employees.emp_no, employees.last_name, employees.first_name, department.dept_name
+from employees
+    INNER JOIN dept_emp on
+    employees.emp_no = dept_emp.emp_no
+    INNER JOIN department on
+    department.dept_no = dept_emp.dept_no
+    --where dept_name = 'Sales' and dept_name = 'Development';
+    where dept_name = 'Sales' or dept_name = 'Development'
+
