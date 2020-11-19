@@ -37,6 +37,25 @@ select * from department;
 create table dept_emp(
 	emp_no int NOT NULL,
 	FOREIGN KEY(emp_no) REFERENCES employee(emp_no),
-	dept_no VARCHAR(10) NOT NULL,
+	dept_no VARCHAR(30) NOT NULL,
 	FOREIGN KEY (dept_no) references department(dept_no)
 );
+
+--Make dept_manager table
+create table dept_manager(
+	dept_no VARCHAR(30) NOT NULL,
+	FOREIGN KEY (dept_no) references department(dept_no),
+	emp_no int NOT NULL,
+	FOREIGN KEY (emp_no) references employee(emp_no)
+);
+
+select * from dept_manager;
+
+--Make the salaries table
+create table salaries(
+	emp_no int NOT NULL,
+	FOREIGN KEY (emp_no) references employee(emp_no),
+	salary int NOT NULL
+);
+
+select * from salaries;
